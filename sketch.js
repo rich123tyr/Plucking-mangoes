@@ -57,6 +57,7 @@ function setup() {
 function draw() {
   rectMode(CENTER);
   background(200);
+  Engine.update(engine);
 
   tree.display();
  
