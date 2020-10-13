@@ -1,23 +1,24 @@
 class Mango{
-    constructor(x,y,width,height){
+    constructor(x,y,radius){
         var options={
             isStatic : true,
-            restitution : 0,
+            restitution : 0.3,
             friction : 1.0,
         }
-        this.body = Bodies.rectangle(x,y,width,height,options);
-        this.image = loadImage("Plucking mangoes/mango.png");
-        this.width = width;
-        this.height = height;
+        this.body = Bodies.circle(x,y,radius,options);
+        this.image = loadImage("Plucking mangoes/mango.png")
+        this.radius = radius;
+        World.add(world,this.body)
 
     }
     display(){
         var angle = this.body.angle;
         push();
+        angleMode(RADIANS);
         translate(this.body.position.x,this.body.position.y);
         rotate(angle);
         imageMode(CENTER);
-        image(this.image,1150,100,this.width,this.height)
+        image(this.image,0,0,this.radius,this.radius);
         pop();
     }
 }

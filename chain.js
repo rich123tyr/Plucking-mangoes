@@ -13,14 +13,21 @@ class Chain{
         World.add(world, this.chain);
 
     }
+    attach(body){
+        this.chain.bodyA = this.body;
+    }
+    
+    fly(){
+        this.chain.bodyA = null;
+    }
     display(){
-        push();
-        var pointA = this.chain.bodyA.position
-        var pointB = this.chain.pointB
-        line(pointA.x,pointA.y,pointB.x,pointB.y);
-        strokeWeight(7)
-        pop();
-
-
+        if(this.chain.bodyA){
+            var pointA = this.chain.bodyA.position
+            var pointB = this.chain.pointB
+            line(pointA.x,pointA.y,pointB.x,pointB.y);
+            strokeWeight(7)
+       
+        }
+      
     }
 }
