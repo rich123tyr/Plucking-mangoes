@@ -4,14 +4,13 @@ class Stone{
             isStatic : false,
             restitution : 0.3,
             friction : 1.0,
-            density : 1.2,
+            density : 0.5,
         }
-        this.body = Bodies.circle(x,y,radius,options);
+        this.body = Bodies.circle(x,y,radius/2,options);
         this.stone = loadImage('Plucking mangoes/stone.png');
         this.radius = radius;
         World.add(world, this.body);
     }
-   attach
 
     display(){
         var pos =this.body.position;
@@ -20,8 +19,7 @@ class Stone{
         translate(pos.x,pos.y)
         rotate(angle);
         imageMode(CENTER);
-        image(this.stone,0,0,this.radius,this.radius);
+        image(this.stone,0,0,this.radius*2,this.radius*2);
         pop();
     }
-    
 }
